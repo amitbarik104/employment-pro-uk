@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
-import TextField from '@mui/material/TextField';
+import React from 'react';
+import AppRoutes from './routes/AppRoutes';
+
+import { Provider } from 'react-redux';
+import { store } from './redux/stores/store';
 
 
 const App = () => {
-    const [username, setUsername] = useState("")
-    const onHandleTextChange = ({target: {value}}) => {
-        setUsername(value)
-    }
-    return <div>
-        <TextField id="outlined-basic" label="Outlined" variant="outlined" onChange={onHandleTextChange} />
-    </div>
+    return (
+        <Provider store={store}><AppRoutes /></Provider>
+    )
 }
 
 export default App;
